@@ -30,6 +30,9 @@ DEBUG = True
 # Autoriser tous les hôtes
 ALLOWED_HOSTS = ['localhost', '127.0.0.1'] + ([f"{os.environ.get('CODESPACE_NAME')}-8000.app.github.dev"] if os.environ.get('CODESPACE_NAME') else [])
 
+# Pour éviter les problèmes de certificat HTTPS dans les codespaces
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Application definition
 
